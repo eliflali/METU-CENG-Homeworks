@@ -1,0 +1,112 @@
+.pos0
+	irmovq stack, %rsp
+	irmovq root, %rdi
+	irmovq k, %rsi
+	call kth_bst
+	halt
+
+.pos 0x200
+root:
+	.quad 17
+	.quad node6
+	.quad node24
+node6:
+	.quad 6
+	.quad node4
+	.quad node11
+node4:
+	.quad 4
+	.quad node3
+	.quad node5
+node3:
+	.quad 3
+	.quad 0
+	.quad 0
+node5:
+	.quad 5
+	.quad 0 # Remember that 0 is null.
+	.quad 0
+node11:
+    .quad 11
+    .quad node8
+    .quad 0
+node8:
+    .quad 8
+    .quad 0
+    .quad 0
+node24:
+    .quad 24
+    .quad node19
+    .quad node40
+node19:
+    .quad 19
+    .quad 0
+    .quad 0
+node40:
+    .quad 40
+    .quad 0
+    .quad node52
+node52:
+    .quad 52
+    .quad 0
+    .quad 0
+k:
+    .quad 8
+
+kth_bst:
+    irmovq $1, %r9
+    irmovq $0, %r8
+    irmovq $8, %r10
+    irmovq $31, %r13
+    pushq %rbx
+    pushq %r11
+    pushq %r12
+    
+    
+    andq %rdi, %rdi
+    je doneone
+    
+    rrmovq %rdi, %r11
+    mrmovq (%rdi), %rbx
+    rrmovq %rsi, %r12
+    mrmovq (%rsi), %r14
+    
+    mrmovq 8(%r11), %rdi
+    call kth_bst
+    
+    addq %r8, %r14      #if(k>0)
+    jle done
+    
+    subq %r9, %r14
+    rmmovq %r14, (%rsi)
+    je donetrue
+    
+    addq %r10, %r11
+    mrmovq 8(%r11), %rdi
+    call kth_bst
+    popq %r12
+    popq %r11
+    popq %rbx
+    ret
+doneone:
+    irmovq $-1, %rax
+    popq %r12
+    popq %r11
+    popq %rbx
+    ret
+    
+donetrue:
+    rrmovq %rbx, %rax
+    popq %r12
+    popq %r11
+    popq %rbx
+    ret
+done:
+    popq %r12
+    popq %r11
+    popq %rbx
+    ret
+    
+.pos 0x800
+
+stack:
