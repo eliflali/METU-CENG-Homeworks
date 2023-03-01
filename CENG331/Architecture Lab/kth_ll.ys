@@ -1,0 +1,54 @@
+
+.pos 0 
+	irmovq stack, %rsp  	# Set up stack pointer  
+	irmovq ele0, %rdi		# set parameter
+	irmovq $4, %rsi
+	call kth_ll			# call kth_ll(ele0, k)
+	halt					# Terminate program 
+
+# example linked list
+.pos 0x200
+ele0:
+.quad 0x0005
+.quad ele1
+ele1:
+.quad 0x000c
+.quad ele2
+ele2:
+.quad 0x0010
+.quad ele3
+ele3:
+.quad 0x001a
+.quad ele4
+ele4:
+.quad 0x0030
+.quad ele5
+ele5:
+.quad 0x0045
+.quad ele6
+ele6:
+.quad 0x005e
+.quad 0 #remember that 0 is null
+
+kth_ll:
+
+	xorq %rax, %rax 		# kth = 0 
+	irmovq $1, %r10
+	subq %r10, %rsi
+	jmp test 		#jump to test
+loop:
+	subq %r10, %rsi
+	andq %rdi, %rdi
+	je done
+	mrmovq $8(%rdi), %rdi
+test:
+	andq %rsi, %rsi
+	jne loop
+	mrmovq (%rdi), %rax
+	ret
+done: 
+	ret 
+
+   .pos 0x300		
+stack:	
+            
