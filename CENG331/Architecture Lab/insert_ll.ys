@@ -1,0 +1,89 @@
+.pos 0 
+    irmovq stack, %rsp
+    irmovq ele0, %rdi
+    irmovq array, %rsi
+    irmovq 56, %rdx
+    call insert_ll
+    halt
+    
+.pos 0x200
+ele0:
+    .quad 0x0005
+    .quad ele1
+ele1:
+    .quad 0x000c
+    .quad ele2
+ele2:
+    .quad 0x0010
+    .quad ele3
+ele3:
+    .quad 0x001a
+    .quad ele4
+ele4:
+    .quad 0x0030
+    .quad ele5
+ele5:
+    .quad 0x0045
+    .quad ele6
+ele6:
+    .quad 0x005e
+    .quad 0 # Remember that 0 is null.
+    
+# An array with size of 2 to put new element in:
+# Make sure your code works correctly. Do not
+# fill beyond the bounds of the array. You should
+# see the new value and the pointer to the next
+# element.
+.pos 0x400
+array:
+    .quad 0
+    .quad 0
+
+
+
+insert_ll: # head in rdi, array in rsi, 56 in rdx
+    rrmovq %rdx, %r14  #56 in r14
+    rrmovq %rsi, %r12 #array in r12
+    rrmovq %rdi, %r11  #head in r11
+    mrmovq (%rdi), %rbx
+    rmmovq %r14, (%rsi)  #*array = value
+    
+    andq %r11, %r11  # (!head)
+    je doneone  # if null
+    subq %rbx, %r14  #if head->value>value   value - head->value < 0   rbx-r13
+    jl doneone
+    mrmovq (%rdi), %rbx
+    rrmovq %rdx, %r14  #56 in r14
+    rrmovq %rdi, %r11      #temp = head
+    mrmovq 8(%r11), %r11   # temp = temp->next
+    andq %r11, %r11       #temp =? null
+    je done
+    jmp loop
+loop:
+    mrmovq (%r11), %r13     #r13 = temp->value
+    rrmovq %r14, %rbx       #rbx = 56
+    subq %r13, %rbx         #56 - temp->value   , temp->next->value < value
+    jl done                #>=0 
+    mrmovq 8(%r11), %r11    #temp = temp->next
+    jmp test
+    
+test: 
+    rrmovq %r11, %r13       #r13 = temp->next
+    andq %r13, %r13         #temp =? null
+    je done 
+    jmp loop
+    
+doneone:
+    rmmovq %rdi, 8(%rsi)  #(array+1) = head
+    rrmovq %rsi, %rax   #return array
+    ret
+
+done:
+    rmmovq %r11, 8(%rsi)     #*(array+1) = temp->next;
+    rmmovq %rsi, -8(%r11)       #temp->next = array;
+    rrmovq %rdi, %rax       #return head;
+    ret
+    
+.pos 0x800
+
+stack:
