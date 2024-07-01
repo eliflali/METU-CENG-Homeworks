@@ -1,0 +1,57 @@
+There is 1 task to be solved in 12 hours in this take home exam.
+You will implement your solutions in the2.cpp file.
+You are free to add other functions to the2.cpp
+Do not change the first line of the2.cpp, which is #include "the2.h"
+Do not change the arguments and return value of the functions multiDigitRadixSort() in the file the2.cpp
+Do not include any other library or write include anywhere in your the2.cpp file (not even in comments).
+You are given test.cpp file to test your work on Odtuclass or your locale. You can and you are encouraged to modify this file to add different test cases.
+If you want to test your work and see your outputs you can compile your work on your locale as:
+>g++ test.cpp the2.cpp -Wall -std=c++11 -o test
+
+> ./test
+
+
+You can test your the2.cpp on virtual lab environment. If you click run, your function will be compiled and executed with test.cpp. If you click evaluate, you will get a feedback for your current work and your work will be temporarly graded for limited number of inputs.
+The grade you see in lab is not your final grade, your code will be reevaluated with completely different inputs after the exam.
+The system has the following limits:
+
+a maximum execution time of 32 seconds 
+a 192 MB maximum memory limit
+an execution file size of 1M.
+Each task has a complexity constraint explained in respective sections.
+Solutions with longer running times will not be graded.
+If you are sure that your solution works in the expected complexity constrains but your evaluation fails due to limits in the lab environment, the constant factors may be the problem.
+
+ long multiDigitRadixSort(int* arr, bool ascending, int arraySize, int groupSize, int maxDigitLength);
+
+
+In this exam, you are asked to complete the function definitions to sort the given array arr with descending or ascending order with respect to given boolean parameter ascending by using multiDigitRadixSort.
+
+multiDigitRadixSort is a derivative of radix sort that uses multi digit counting sort as a stable sort function. In each counting sort, you should use the number of digits given by groupSize parameter. 
+
+For example, arr[4] = {4367, 1234, 7890}. If groupSize is 1, then the function is exactly equal to classical radix sort. That means, the first counting sort will use the last digits of the numbers which are 7, 4 and 0.  If groupSize is equal to 2, then the first counting sort will use the last two digits of the numbers which are 67, 34 and 90.
+
+If groupSize is not a multiplier of maxDigitLength, you should use maximum remaining digit count in counting sort function. For example, groupSize is 3 and maximum number in the array is 65789 , that means maxDigitLength is 5. In the first counting sort, you should use least significant 3 digits, in the second counting sort you should use most significant 2 digits.
+
+You should return the number of iterations during counting sort.(The counting sort algorithm in our book has 4 different loops. Different than the algorithm for Counting Sort in your book, initialize count array as int C[k] = {0} and use the fourth loop for copying the array back. Otherwise the return value of the function will not be evaluated as correct.)
+
+Do not forget to initialize your count array to zero. Otherwise, you may see some unstable behaviours. 
+
+Inputs:
+bool ascending: If ascending is true, sort the array with ascending order. Otherwise, sort the array with descending order.
+int arraySize:  The number of elements in the array
+int groupSize: The number of digits that each counting sort uses
+int maxDigitLength: Maximum number of digits that any element in the array has
+
+Constraints:
+Maximum array size is 100000.
+Array elements are positive integers.
+The number of digits can be different in each element.
+Maximum groupSize is 10.
+Evaluation:
+
+After your exam, black box evaluation will be carried out. You will get full points if you fill the arr variable as stated and return the number of iterations correctly.
+Example IO:
+You can find example I/O files under your working directory. The example files is exactly same as the ones used in evaluation function. Input parser function is given to you in test.cpp file. 
+
+The first line of the output file is iteration number. The second line is array size and rest is sorted array. You can test your function on your locale by using these input and output files.
