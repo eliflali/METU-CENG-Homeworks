@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Schedule</title>
+    <style>
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="date"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #add-event-title {
+            background-color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        #add-event-title:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const addEventTitleButton = document.getElementById('add-event-title');
+            const eventTitlesContainer = document.getElementById('event-titles-container');
+
+            addEventTitleButton.addEventListener('click', function (e) {
+                e.preventDefault();
+                const newInput = document.createElement('input');
+                newInput.setAttribute('type', 'text');
+                newInput.setAttribute('name', 'schedule_event_titles');
+                newInput.classList.add('form-control');
+                eventTitlesContainer.appendChild(newInput);
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Create Schedule</h1>
+
+    <form action="{% url 'find-schedule' %}" method="post">
+        {% csrf_token %}
+
+        <div id="event-titles-container" class="form-group">
+            <label for="schedule_event_titles">Event ids:</label>
+            <input type="text" name="schedule_event_titles" class="form-control" placeholder="1,2,3,4,5,6,7,8,9 (should be seperated by a comma only)">
+        </div>
+
+        <div class="form-group">
+            <label for="schedule_org_name">Organization Name:</label>
+            <input type="text" id="schedule_org_name" name="schedule_org_name" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="schedule_room_name">Room Name:</label>
+            <input type="text" id="schedule_room_name" name="schedule_room_name" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="schedule_date">Date:</label>
+            <input type="date" id="schedule_date" name="schedule_date" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="schedule_working_hours">Working Hours:</label>
+            <input type="text" placeholder="e.g 09:00-17:00" id="schedule_working_hours" name="schedule_working_hours" class="form-control">
+        </div>
+
+        <button type="submit" class="button">Submit</button>
+    </form>
+    <a href="/command-center/" class="back-link">Back to Command Center</a>
+</body>
+</html>

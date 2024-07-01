@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Register</title>
+    <style>
+      /* General Styles */
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f0f2f5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+
+      /* Form Styling */
+      form {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        width: 300px;
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        color: #666;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+
+      input[type="text"]:focus,
+      input[type="email"]:focus,
+      input[type="password"]:focus {
+        border-color: #007bff;
+        outline: none;
+      }
+
+      /* Button Styling */
+      button {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      /* Error Message */
+      #registerError {
+        color: red;
+        text-align: center;
+        margin-top: 10px;
+      }
+
+      /* Back to Login Button */
+      .back-to-login-btn {
+        width: 100%;
+        padding: 10px;
+        margin-top: 20px;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .back-to-login-btn:hover {
+        background-color: #0056b3;
+      }
+    </style>
+    <script>
+      function handleRegistration(event) {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        fetch("/register/", {
+          // Ensure this URL matches your Django view URL
+          method: "POST",
+          body: formData,
+        })
+          .then((response) => {
+            if (
+              response.headers.get("content-type").includes("application/json")
+            ) {
+              return response.json();
+            } else {
+              // Handle non-JSON responses by throwing an error
+              return response.text().then((text) => {
+                throw new Error("Non-JSON response: " + text);
+              });
+            }
+          })
+          .then((data) => {
+            if (data.response === "Successfully registered.") {
+              // Display a success message and then redirect
+              alert("Registration successful! Please login.");
+              window.location.href = "/login/";
+            } else {
+              // Display error message from JSON response
+              document.getElementById("registerError").textContent =
+                data.error || "Registration failed!";
+            }
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            // Display the error message, including non-JSON response text if applicable
+            document.getElementById("registerError").textContent =
+              "Registration error: " + error.message;
+          });
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Register</h1>
+    <form id="registerForm" onsubmit="handleRegistration(event)">
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required />
+      </div>
+      <div class="form-group">
+        <label for="fullname">Full Name:</label>
+        <input type="text" id="fullname" name="fullname" required />
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required />
+      </div>
+      <button type="submit">Register</button>
+    </form>
+    <div id="registerError"></div>
+    <div style="text-align: center">
+      <a href="/login/" class="back-to-login-btn">Back to Login</a>
+    </div>
+  </body>
+</html>

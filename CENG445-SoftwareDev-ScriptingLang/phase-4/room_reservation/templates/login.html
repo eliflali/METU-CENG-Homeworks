@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login</title>
+    <style>
+       /* General Styles */
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background: linear-gradient(to right, #6dd5ed, #2193b0); /* Subtle gradient background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Container for the form */
+.login-container {
+  background: rgba(255, 255, 255, 0.95); /* Slightly more opaque white */
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+}
+
+h1 {
+  margin-bottom: 1em;
+  color: #333; /* Darker color for better contrast */
+}
+
+/* Form Styling */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  text-align: left;
+  color: #333; /* Darker color for better contrast */
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  box-sizing: border-box;
+  background: rgba(0,0,0,0.1); /* Light background for inputs */
+  color: #333; /* Dark text for better readability */
+  transition: transform 0.2s ease-in-out;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  transform: scale(1.02); /* Slight zoom on focus */
+}
+
+/* Button Styling */
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background-color: #22a6b3;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #0984a3;
+  transform: translateY(-3px);
+}
+
+/* Error Message */
+#loginError {
+  margin-top: 15px;
+  color: #ff6b6b;
+  height: 20px;
+}
+
+/* Register Button */
+.register-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 10px 15px;
+  background-color: #ff6b81;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.register-btn:hover {
+  background-color: #ff4757;
+  transform: translateY(-3px);
+}
+
+    </style>
+    <script>
+      function handleLogin(event) {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        fetch("/execute-login/", {
+          method: "POST",
+          body: formData,
+        })
+          .then((response) => {
+            if (
+              response.headers.get("content-type").includes("application/json")
+            ) {
+              return response.json();
+            } else {
+              return response.text().then((text) => {
+                throw new Error(text);
+              });
+            }
+          })
+          .then((data) => {
+            if (data.redirect) {
+              window.location.href = data.redirect;
+            } else {
+              document.getElementById("loginError").textContent =
+                data.error || "Login failed!";
+            }
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            document.getElementById("loginError").textContent =
+              "Login error: " + error.message;
+          });
+      }
+    </script>
+  </head>
+  <body>
+    <div>
+      <a href="/register/" class="register-btn">Register</a>
+    </div>
+
+    <div class="login-container">
+      <h1>Login</h1>
+      <form id="loginForm" onsubmit="handleLogin(event)">
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required />
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required />
+        </div>
+        <button type="submit">Login</button>
+      </form>
+      <div id="loginError"></div>
+    </div>
+  </body>
+</html>

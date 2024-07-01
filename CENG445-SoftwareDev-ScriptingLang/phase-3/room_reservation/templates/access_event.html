@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 40px auto;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .back-link:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Event Details</h1>
+        {% if events %}
+            <p><strong>Event ID:</strong> {{ events.id }}</p>
+            <p><strong>Title:</strong> {{ events.title }}</p>
+            <p><strong>Description:</strong> {{ events.description }}</p>
+            <p><strong>Category:</strong> {{ events.category }}</p>
+            <p><strong>Capacity</strong> {{ events.capacity }}</p>
+            <p><strong>Duration</strong> {{ events.duration }}</p>
+            <p><strong>Weekly:</strong> {{ events.weekly }}</p>
+            <p><strong>Organization:</strong> {{ events.organization }}</p>
+            <p><strong>Owner:</strong> {{ events.owner }}</p>
+        {% else %}
+            <p>Invalid response from phase2 server in get_room</p>
+        {% endif %}
+        <a href="/command-center/" class="back-link">Back to Command Center</a>
+    </div>
+</body>
+</html>

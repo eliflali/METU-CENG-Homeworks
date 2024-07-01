@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Organization Creation Response</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f2f2f2;
+      }
+      .container {
+        width: 80%;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-top: 50px;
+      }
+      h1 {
+        color: #333;
+      }
+      .message {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-top: 20px;
+        background-color: #e8e8e8;
+      }
+      .error {
+        color: red;
+      }
+      .back-link {
+        display: block;
+        margin-top: 20px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>{{ title }}</h1>
+      <div class="message">
+        {% if permission_response %}
+        <p>{{ permission_response }}</p>
+        {% endif %} {% if error %}
+        <p class="error">{{ error }}</p>
+        {% endif %}
+      </div>
+      <div class="message">
+        {% if response_message %}
+        <p>{{ response_message }}</p>
+        {% endif %} {% if error %}
+        <p class="error">{{ error }}</p>
+        {% endif %}
+      </div>
+    </div>
+    <a href="/command-center/" class="back-link">Back to Command Center</a>
+  </body>
+</html>

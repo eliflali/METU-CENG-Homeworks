@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Schedule Results</title>
+    <style>
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .schedule-table th, .schedule-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .schedule-table th {
+            background-color: #f2f2f2;
+        }
+
+        .schedule-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .schedule-table tr:hover {
+            background-color: #e9e9e9;
+        }
+
+        .schedule-group {
+            margin-bottom: 30px;
+        }
+
+        .schedule-group-title {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Schedule Options</h1>
+
+    {% for schedule_group in response %}
+        <div class="schedule-group">
+            <div class="schedule-group-title">Schedule Option {{ forloop.counter }}</div>
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>Event ID</th>
+                        <th>Time Slot</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for schedule in schedule_group %}
+                        <tr>
+                            <td>{{ schedule.0 }}</td>
+                            <td>{{ schedule.1 }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% endfor %}
+</body>
+</html>

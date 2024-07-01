@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Phase 3 Room Reservation App</title>
+    <script>
+      // JavaScript to refresh the page every 5 minutes (300000 milliseconds)
+      setTimeout(function () {
+        location.reload();
+      }, 300000);
+    </script>
+  </head>
+  <body>
+    <h1>Room Reservation Map</h1>
+    <p id="commandResult">Result of the last command: {{ response_message }}</p>
+    <p id="token">Token: {{ token }}</p>
+
+    <!-- TODO: SVG Map -->
+    <svg height="1024" width="1024">
+      {% for obj in objects %}
+      <text
+        x="{{ obj.x }}"
+        y="{{ obj.y }}"
+        fill="{{ obj.color }}"
+        font-size="10px"
+      >
+        {{ obj.name }}
+      </text>
+      <circle cx="{{ obj.x }}" cy="{{ obj.y }}" r="5" fill="{{ obj.color }}" />
+      {% endfor %}
+    </svg>
+
+    <!-- User command form -->
+    <form method="post" action="{% url 'combined_view' %}">
+      {% csrf_token %}
+      <label for="command">Enter Command:</label>
+      <input
+        type="text"
+        id="command"
+        name="command"
+        placeholder="Enter command"
+      />
+      <!-- The token is sent as a hidden field within the form -->
+      <input type="hidden" name="token" value="{{ token }}" />
+      <input type="submit" value="Send Command" />
+    </form>
+
+    <script>
+      function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== "") {
+          const cookies = document.cookie.split(";");
+          for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === name + "=") {
+              cookieValue = decodeURIComponent(
+                cookie.substring(name.length + 1)
+              );
+              break;
+            }
+          }
+        }
+        return cookieValue;
+      }
+
+      const csrftoken = getCookie("csrftoken"); // Function to get the CSRF token from cookies
+
+      document.querySelector("form").onsubmit = function (event) {
+        event.preventDefault();
+        var xhr = new XMLHttpRequest();
+        xhr.onload = function () {
+          if (xhr.status === 200) {
+            // Parse the JSON response
+            var response = JSON.parse(xhr.responseText);
+            // Update the commandResult paragraph with the response message
+            // Make sure to use the key 'response' as received from the server
+            document.getElementById("commandResult").textContent =
+              response.response;
+            document.getElementById("token").textContent = response.token;
+          } else {
+            document.getElementById("commandResult").textContent =
+              "Error processing command.";
+          }
+        };
+        xhr.open("POST", this.action);
+        xhr.setRequestHeader(
+          "Content-Type",
+          "application/x-www-form-urlencoded"
+        );
+        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+        var commandInput = document.querySelector('input[name="command"]');
+        xhr.send(
+          "command=" +
+            encodeURIComponent(commandInput.value) +
+            "&token=" +
+            encodeURIComponent("{{ token }}")
+        );
+      };
+    </script>
+  </body>
+</html>

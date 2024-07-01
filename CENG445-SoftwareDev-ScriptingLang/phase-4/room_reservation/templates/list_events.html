@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>EVENTS</title>
+    <style>
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+      .back-link {
+        display: block;
+        margin-top: 20px;
+        text-align: center;
+      }
+    </style>
+    {% load static %}
+  </head>
+  <body>
+    <h1>EVENTS</h1>
+    <table id="events-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Category</th>
+          <th>Capacity</th>
+          <th>Duration</th>
+          <th>Weekly</th>
+          <th>Organization</th>
+          <th>Owner</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Initial data loaded by Django template -->
+        {% for event in events %}
+        <tr>
+          <td>{{ event.id }}</td>
+          <td>{{ event.title }}</td>
+          <td>{{ event.description }}</td>
+          <td>{{ event.category }}</td>
+          <td>{{ event.capacity }}</td>
+          <td>{{ event.duration }}</td>
+          <td>{{ event.weekly }}</td>
+          <td>{{ event.organization }}</td>
+          <td>{{ event.owner }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <a href="/command-center/" class="back-link">Back to Command Center</a>
+    <h1>Event Details</h1>
+
+    <!-- Add additional HTML elements for event details if needed -->
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const orgName = "{{ org_name }}"; // Organization name passed from Django
+        const token_ = "{{ token }}"
+        const url = `/events-json/${orgName}/${token_}/`; // URL for events-json endpoint with org_name and token in the path
+
+        function updateContent(events) {
+          // Update the table
+          const tableBody = document.getElementById('events-table').getElementsByTagName('tbody')[0];
+          tableBody.innerHTML = ''; // Clear existing table data
+
+          events.forEach(event => {
+            const row = `<tr>
+                          <td>${event.id}</td>
+                          <td>${event.title}</td>
+                          <td>${event.description}</td>
+                          <td>${event.category}</td>
+                          <td>${event.capacity}</td>
+                          <td>${event.duration}</td>
+                          <td>${event.weekly}</td>
+                          <td>${event.organization}</td>
+                          <td>${event.owner}</td>
+                        </tr>`;
+            tableBody.innerHTML += row;
+          });
+
+          // Add logic to display event details if needed
+
+          // Reattach event listeners to the new event elements
+          attachEventListeners();
+        }
+
+        function attachEventListeners() {
+          // Add event listeners for events if needed
+        }
+
+        function fetchData() {
+          fetch(url)
+            .then(response => response.json())
+            .then(data => updateContent(data.response))
+            .catch(error => console.error("Error fetching data:", error));
+        }
+
+        setInterval(fetchData, 5000); // Fetch data every 1.5 seconds
+        fetchData(); // Initial fetch
+      });
+    </script>
+  </body>
+</html>

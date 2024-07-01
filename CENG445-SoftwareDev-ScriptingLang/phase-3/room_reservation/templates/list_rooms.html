@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ROOMS</title>
+    <style>
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+      .back-link {
+        display: block;
+        margin-top: 20px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>ROOMS</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>x</th>
+          <th>y</th>
+          <th>Capacity</th>
+          <th>Working hours</th>
+          <th>Owner</th>
+          <th>Organization</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for room in rooms %}
+        <tr>
+          <td>{{ room.id }}</td>
+          <td>{{ room.name }}</td>
+          <td>{{ room.x }}</td>
+          <td>{{ room.y }}</td>
+          <td>{{ room.capacity }}</td>
+          <td>{{ room.working_hours }}</td>
+          <td>{{ room.owner }}</td>
+          <td>{{ room.organization }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <a href="/command-center/" class="back-link">Back to Command Center</a>
+    <h1>SVG Map</h1>
+  
+    <!-- SVG Map -->
+    <svg height="1024" width="1024" style="background-color: #f9f9f9;">
+        {% for room in rooms %}
+        <!-- Definitions for gradients and filters -->
+        <defs>
+            <linearGradient id="roomGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:rgb(135,206,235);stop-opacity:1" />
+                <stop offset="100%" style="stop-color:rgb(0,191,255);stop-opacity:1" />
+            </linearGradient>
+            <filter id="f1" x="0" y="0" width="200%" height="200%">
+                <feOffset result="offOut" in="SourceGraphic" dx="3" dy="3" />
+                <feGaussianBlur result="blurOut" in="offOut" stdDeviation="3" />
+                <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+            </filter>
+        </defs>
+        
+        <!-- Key/Legend for the Map -->
+        <rect x="10" y="10" width="200" height="70" style="fill:white;stroke:black;stroke-width:1;" />
+        <text x="20" y="30" fill="black" font-family="Arial" font-size="14px">Key:</text>
+        <rect x="20" y="40" width="20" height="20" style="fill:url(#roomGradient);stroke:black;stroke-width:1;" />
+        <text x="45" y="55" fill="black" font-family="Arial" font-size="14px">Room</text>
+        
+        <!-- Draw rooms with gradient fill and shadow -->
+        <rect x="{{ room.x }}" y="{{ room.y }}" width="80" height="50"
+            style="fill:url(#roomGradient);stroke:black;stroke-width:1;filter:url(#f1);" />
+        <text x="{{ room.x }}" y="{{ room.y }}" dx="10" dy="30" fill="black" font-family="Arial" font-size="14px" font-weight="bold">
+            {{ room.name }}
+        </text>
+        {% endfor %}
+        <!-- Additional indicators can go here -->
+        
+    </svg>
+  </body>
+</html>

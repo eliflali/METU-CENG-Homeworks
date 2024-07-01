@@ -1,0 +1,135 @@
+#the3 all functions together
+
+#calculate_price function
+
+def treemake(part_list):
+    #this function takes part_list and turns it into a tree thanks to recursion and iteration
+    item = part_list.pop(0)
+    datum = []
+    leaves = []
+    for x in item:
+        if type(x)==tuple or type(x)==list:
+            leaves+=[x]
+        else: datum+=[x]
+    if not leaves:
+        return datum
+    tot = []
+    for a in leaves:
+        for y in part_list:
+            if a[1]==y[0]:
+                tot += [[a[0], a[1]]+ y[1:]]
+                part_list.remove(y)
+    s = []
+    for x in tot:
+        s+=[treemake([x]+part_list)]
+    s=datum+s
+    return s
+
+def propering(part_list):
+    #this function helps treemake function by taking the main ingredient into first place.
+    #example: if our part_list1=[[bike, [wheel], [frame]], [wheel,(),()], [frame, (),()]]
+    #I defined 'bike' as the 'main ingredient'.
+    #If part_list2=[[wheel,(),()], [bike, [wheel], [frame]],[frame, (),()]], 
+    #this function makes it like part_list1
+    stringstotry = []
+    for x in part_list:
+        for y in x:
+            if type(y)==tuple:
+                stringstotry+=[y[1]]
+    for x in part_list:
+        if x[0] not in stringstotry:
+            theindex = part_list.index(x)
+            return [part_list.pop(theindex)]+part_list
+def datum(tree):
+    #a function we've used in trees
+    if len(tree)>1 and type(tree[1])==str:
+        return tree[:2]
+    return tree[0]
+
+def children(tree):
+    #a function we've used in trees
+    if len(tree)>1 and type(tree[1])==str:
+        return tree[2:]
+    if len(tree)>2 and type(tree[2])==float:
+        return tree
+    return tree[1:]
+
+def isleaf(child):
+    #a function we've used in trees
+    res = True
+    for x in child:
+        if type(x)==list:
+            res = False
+            return res
+    return res
+
+
+def calculate_price(part_list):
+    #This function calls pricehelper to calculate the price
+    #Also, it uses treemake and propering functions to turn our part_list into a tree.
+    a = treemake(propering(part_list))[:]
+    return pricehelper(a)
+def pricehelper(part_list):
+    #This function calculates the price with recursion help.
+    #Also, it uses datum and children functions to calculate the price of our smaller trees.
+    if isleaf(part_list)==True:
+        return datum(part_list)[0]*part_list[2]
+    s = 0
+    for a in children(part_list):
+        if type(datum(part_list)[0])==int:
+            s += pricehelper([a[0]*datum(part_list)[0]]+a[1:])
+        else:
+            s+= pricehelper(a)
+    return s
+
+
+#required_parts function
+
+
+
+
+def required_parts(part_list):
+    #This function calls partshelper to list the parts we need
+    #Also, it uses treemake and propering functions to turn our part_list into a tree.
+    return partshelper(treemake(propering(part_list)))
+def partshelper(part_list):
+    #This function lists parts we need with recursion help.
+    #Also, it uses datum and children functions to calculate the price of our smaller trees.
+    if isleaf(part_list) == True:
+        return [(part_list[0], part_list[1])]
+    s = []
+    for a in children(part_list):
+        if type(datum(part_list)[0]) == int:
+            s +=partshelper([a[0] * datum(part_list)[0]] + a[1:])
+        else:
+            s += partshelper(a)
+    return s
+
+
+
+#stock_check function
+
+def stock_check(part_list, stock_list):
+    #This function does the main job, checks if the parts we need are in stock or not
+    weneed = required_parts(part_list)
+    result = []
+    instock = []
+    for a in stock_list:
+        instock+=[a[1]]
+    for b in weneed:
+        if b[1] not in instock:
+            result+=[(b[1], b[0])]
+
+    for x in weneed:
+        for y in stock_list:
+            if x[1]==y[1]:
+                if x[0]>y[0]:
+                    result+= [(x[1], x[0]-y[0])]
+    return result
+
+part_list1 = [['House', (4, 'Room'), (2, 'Bathroom'), (1, 'Kitchen')], ['Room', (30, 'Parquet'), (3, 'Window'), (2, 'Calorifere')], ['Window', (2, 'Glass'), (1, 'PVC')], ['Bathroom', (20, 'Tile'), (1, 'Lavabo'), (1, 'Toilet'), (1, 'Shower')], ['Toilet', (1, 'Flush'), (1, 'ToiletSeat')], ['Kitchen', (1, 'Balcony'), (2, 'Sink'), (1, 'Built-ins'), (8, 'Cabinet')], ['Balcony', (5, 'Parapet')], ['Built-ins', (1, 'ExtractionHood'), (1, 'Cooker'), (1, 'Oven')], ['Parquet', 30.], ['Glass', 100.], ['PVC', 40.5], ['Calorifere', 180.5], ['Tile', 30.], ['Lavabo', 142.8], ['Flush', 240.], ['ToiletSeat', 445.7], ['Shower', 810.], ['Parapet', 40.], ['Sink', 222.], ['ExtractionHood', 960.], ['Cooker', 1400.], ['Oven', 1230.5], ['Cabinet', 230.]]
+stock_list1 = [(10, 'ToiletSeat'), (10, 'Flush'), (1000, 'Tile'), (2, 'Sink'), (24, 'Glass'), (8, 'ExtractionHood'), (8, 'Cabinet'), (2, 'Lavabo'), (5, 'Oven'), (20, 'Calorifere'), (5, 'Parapet'), (2, 'Shower'), (12, 'PVC'), (5, 'Cooker'), (5000, 'Parquet')]
+
+print(calculate_price(part_list1))
+print(required_parts(part_list1))
+print(stock_check(part_list1, stock_list1))

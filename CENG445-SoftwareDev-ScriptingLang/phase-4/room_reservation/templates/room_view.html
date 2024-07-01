@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event Scheduler</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <style>
+/* Base Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f8f8;
+    color: #4a4a4a;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+.tabs-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 2.2em;
+    color: #35424a;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Tab Styling */
+#tabs {
+    border: none;
+    font-size: 0.95em;
+}
+
+#tabs ul {
+    background: #35424a;
+    padding: 0;
+    margin: 0;
+    border-radius: 8px 8px 0 0;
+    overflow: hidden;
+}
+
+#tabs ul li {
+    display: inline-block;
+    margin: 0;
+}
+
+#tabs ul li a {
+    color: #ffffff;
+    padding: 10px 20px;
+    display: inline-block;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#tabs ul li a:hover,
+#tabs ul li.ui-tabs-active a {
+    background-color: #2f3e50;
+    color: #ffcc29;
+}
+
+/* Table Styling */
+.weekly-grid {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.weekly-grid th,
+.weekly-grid td {
+    border: 1px solid #e3e3e3;
+    padding: 12px 15px;
+    text-align: left;
+}
+
+.weekly-grid th {
+    background-color: #35424a;
+    color: #ffffff;
+    font-weight: normal;
+}
+
+.weekly-grid tr:nth-child(even) {
+    background-color: #f7f7f7;
+}
+
+.weekly-grid tr:hover {
+    background-color: #eaeaea;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .tabs-container {
+        width: 95%;
+        padding: 10px;
+    }
+
+    #tabs ul li a {
+        padding: 8px 10px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+}
+
+    </style>
+</head>
+<body>
+<div class="tabs-container">
+    <h1>Event Scheduler</h1>
+    <div id="tabs">
+        <ul>
+            <li><a href="#rooms-tab">Rooms View</a></li>
+            <li><a href="#days-tab">Days View</a></li>
+        </ul>
+        <div id="rooms-tab">
+            <div id="room-tabs">
+                <ul>
+                    <!-- Room tabs will be dynamically loaded here -->
+                </ul>
+                <!-- Room content will be dynamically loaded here -->
+            </div>
+        </div>
+        <div id="days-tab">
+            <label for="select-day">Select Day: </label>
+            <select id="select-day">
+                <option value="monday">Monday</option>
+                <option value="tuesday">Tuesday</option>
+                <option value="wednesday">Wednesday</option>
+                <option value="thursday">Thursday</option>
+                <option value="friday">Friday</option>
+            </select>
+            <h2>Day View</h2>
+            <table class="weekly-grid">
+                <thead>
+                    <tr>
+                        <th>Room</th>
+                        <th>Time</th>
+                        <th>Event</th>
+                    </tr>
+                </thead>
+                <tbody id="selected-day-events">
+                    <!-- Events for the selected day will be loaded here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        // Test Data
+        var rooms = [
+            { id: 1, name: 'Conference Room A', events: [
+                { day: 'Monday', time: '10:00 AM', title: 'Team Meeting' },
+                { day: 'Wednesday', time: '02:00 PM', title: 'Client Presentation' },
+                { day: 'Friday', time: '01:00 PM', title: 'Weekly Review' }
+            ]},
+            { id: 2, name: 'Conference Room B', events: [
+                { day: 'Tuesday', time: '11:00 AM', title: 'HR Training' },
+                { day: 'Thursday', time: '03:00 PM', title: 'Product Launch Discussion' },
+                { day: 'Friday', time: '10:00 AM', title: 'Brainstorming Session' }
+            ]},
+            { id: 3, name: 'Meeting Room C', events: [
+                { day: 'Monday', time: '09:00 AM', title: 'Project Kickoff' },
+                { day: 'Wednesday', time: '11:00 AM', title: 'Design Review' },
+                { day: 'Thursday', time: '02:00 PM', title: 'Tech Sync' }
+            ]},
+            { id: 4, name: 'Auditorium', events: [
+                { day: 'Tuesday', time: '02:00 PM', title: 'Company Town Hall' },
+                { day: 'Thursday', time: '10:00 AM', title: 'Guest Speaker Event' }
+            ]},
+            { id: 5, name: 'Outdoor Pavilion', events: [
+                { day: 'Wednesday', time: '12:00 PM', title: 'Team Lunch' },
+                { day: 'Friday', time: '03:00 PM', title: 'Farewell Party' }
+            ]}
+
+        ];
+
+        // Function to render the Rooms View
+        function renderRoomsView() {
+            var roomTabsHtml = '';
+            var roomContentHtml = '';
+            rooms.forEach(function(room) {
+                roomTabsHtml += `<li><a href="#room-${room.id}">${room.name}</a></li>`;
+                var eventsHtml = room.events.map(function(event) {
+                    return `<tr><td>${event.day}</td><td>${event.time}</td><td>${event.title}</td></tr>`;
+                }).join('');
+                roomContentHtml += `
+                    <div id="room-${room.id}">
+                        <h2>${room.name} Weekly Schedule</h2>
+                        <table class="weekly-grid">
+                            <thead>
+                                <tr>
+                                    <th>Day</th>
+                                    <th>Time</th>
+                                    <th>Event</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${eventsHtml}
+                            </tbody>
+                        </table>
+                    </div>`;
+            });
+            $('#room-tabs ul').html(roomTabsHtml);
+            $('#room-tabs').append(roomContentHtml);
+        }
+
+        // Function to render the Days View
+        function renderDaysView(selectedDay) {
+            var eventsHtml = '';
+            rooms.forEach(function(room) {
+                room.events.forEach(function(event) {
+                    if (event.day.toLowerCase() === selectedDay) {
+                        eventsHtml += `<tr><td>${room.name}</td><td>${event.time}</td><td>${event.title}</td></tr>`;
+                    }
+                });
+            });
+            $('#selected-day-events').html(eventsHtml);
+        }
+
+        // Initialize the tabs
+        $("#tabs").tabs({
+            activate: function (event, ui) {
+                var selectedTab = ui.newPanel.attr('id');
+                if (selectedTab === 'days-tab') {
+                    var selectedDay = $('#select-day').val();
+                    renderDaysView(selectedDay);
+                }
+            }
+        });
+
+        // Render rooms view on load
+        renderRoomsView();
+
+        // Event handler for day selection change
+        $('#select-day').change(function() {
+            var selectedDay = $(this).val();
+            renderDaysView(selectedDay);
+        });
+    });
+</script>
+</body>
+</html>

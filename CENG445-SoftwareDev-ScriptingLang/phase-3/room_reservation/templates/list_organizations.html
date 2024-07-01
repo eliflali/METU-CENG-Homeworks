@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Organizations</title>
+    <style>
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+      .back-link {
+        display: block;
+        margin-top: 20px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Organizations</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Owner</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for organization in organizations %}
+        <tr>
+          <td>{{ organization.id }}</td>
+          <td>{{ organization.name }}</td>
+          <td>{{ organization.description }}</td>
+          <td>{{ organization.owner }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <a href="/command-center/" class="back-link">Back to Command Center</a>
+  </body>
+</html>

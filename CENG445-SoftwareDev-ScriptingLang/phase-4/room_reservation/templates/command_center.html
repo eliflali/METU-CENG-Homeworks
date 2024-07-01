@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Command Center</title>
+    <style>
+/* General Styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #e9ecef;
+  color: #495057;
+  line-height: 1.5;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #007bff;
+}
+
+/* Form Styling */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #007bff;
+  font-weight: 600;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="date"],
+.form-group input[type="time"],
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px 0px rgba(0, 123, 255, 0.5);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.form-group input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="number"]:focus,
+.form-group input[type="date"]:focus,
+.form-group input[type="time"]:focus,
+.form-group select:focus {
+  box-shadow: 0px 0px 8px 0px rgba(0, 123, 255, 0.8);
+}
+
+/* Button Styling */
+.button {
+  background-image: linear-gradient(to right, #007bff, #0056b3);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-image 0.3s ease-in-out;
+}
+
+.button:hover {
+  background-image: linear-gradient(to right, #0056b3, #003874);
+}
+
+/* Fieldset Styling */
+fieldset {
+  border: 2px solid #007bff;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+legend {
+  width: auto;
+  padding: 0 10px;
+  color: #007bff;
+  font-weight: bold;
+}
+
+/* Layout Adjustments */
+.option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+
+    #message-container {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: auto;
+        z-index: 1000;
+      }
+
+      .notification {
+        background-color: #333; /* Dark background */
+        color: #fff; /* White text color */
+        padding: 15px;
+        border-radius: 5px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        margin-bottom: 10px; /* Spacing between messages */
+        opacity: 0.9; /* Slight transparency */
+        transition: opacity 0.5s linear; /* Fade effect */
+      }
+
+      .notification:hover {
+        opacity: 1; /* Fully opaque on hover */
+      }
+
+      .notification.error {
+        background-color: #d9534f; /* Bootstrap's `btn-danger` color */
+      }
+
+      /* Optional: keyframes for a fade-in effect */
+      @keyframes fadeIn {
+        from { bottom: 0; opacity: 0; }
+        to { bottom: 20px; opacity: 0.9; }
+      }
+
+      .notification.fade-in {
+        animation-name: fadeIn;
+        animation-duration: 0.5s;
+      }
+    /* Style the button on hover */
+    .room-view-button:hover {
+        background-color: #0056b3; /* Darker blue on hover */
+    }
+    .button:hover {
+      background-color: #45a049;
+    }
+    </style>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const commandSelect = document.getElementById('command');
+        const fields = {
+          submitbutton: document.getElementById('submitbutton').closest('button'),
+          roomviewbutton: document.getElementById('room-view-button').closest('a'),
+          orgname: document.getElementById('org_name').closest('div'),
+          roomname: document.getElementById('room_name').closest('div'),
+          x: document.getElementById('x').closest('div'),
+          y: document.getElementById('y').closest('div'),
+          description: document.getElementById('description').closest('div'),
+          capacity: document.getElementById('capacity').closest('div'),
+          working_hours: document.getElementById('working_hours').closest('div'),
+          event_title: document.getElementById('event_title').closest('div'),
+          start_time: document.getElementById('start_time').closest('div'),
+          end_time: document.getElementById('end_time').closest('div'),
+          start_date: document.getElementById('start_date').closest('div'),
+          end_date: document.getElementById('end_date').closest('div'),
+          duration: document.getElementById('duration').closest('div'),
+          category: document.getElementById('category').closest('div'),
+          event_ids: document.getElementById('event_ids').closest('div'),
+          room_id: document.getElementById('room_id').closest('div'),
+          weekly: document.getElementById('weekly').closest('div'),
+          owner: document.getElementById('owner').closest('div'),
+          field: document.getElementById("field").closest('div'),
+          value: document.getElementById("value").closest('div'),
+          observation_type: document.getElementById("observation_type").closest('div'),
+
+          perm_list: document.getElementById('perm_list').closest('div'),
+          perm_access: document.getElementById('perm_access').closest('div'),
+          perm_add: document.getElementById('perm_add').closest('div'),
+          perm_delete: document.getElementById('perm_delete').closest('div'),
+
+          roomperm_list: document.getElementById('list_perm').closest('div'),
+          perm_perreserve: document.getElementById('perreserve_perm').closest('div'),
+          roomperm_delete: document.getElementById('delete_perm').closest('div'),
+          
+          perm_write: document.getElementById('write_perm').closest('div'),
+          perm_reserve: document.getElementById('reserve_perm').closest('div'),
+
+          eventperm_read: document.getElementById('event_perm_read').closest('div'),
+          eventperm_write: document.getElementById('event_perm_write').closest('div'),
+        };
+    
+        function hideAllFields() {
+          for (const key in fields) {
+            fields[key].style.display = 'none';
+          }
+        }
+    
+        const fieldMapping = {
+          list_organizations: ['submitbutton'],
+          create_organization: ['orgname', 'description', 'perm_list', 'perm_access', 'perm_delete', 'perm_add', 'submitbutton'],
+          update_organization: ['orgname', 'value', 'field', 'submitbutton'],
+          list_rooms: ['orgname', 'submitbutton'],
+          list_events: ['orgname', 'submitbutton'],
+          create_room: ['orgname', 'roomname', 'x', 'y', 'capacity', 'working_hours', 'submitbutton'],
+          access_room: ['orgname', 'roomname', 'submitbutton'],
+          delete_room: ['orgname', 'roomname', 'submitbutton'],
+          update_room: ['orgname', 'roomname', 'x', 'y', 'capacity', 'working_hours', 'submitbutton'],
+          list_room_events: ['orgname', 'roomname', 'submitbutton'],
+          create_reservation: ['orgname', 'roomname', 'event_title', 'start_date', 'duration','weekly', 'description', 'submitbutton'],
+          delete_reservation: ['orgname', 'roomname', 'event_title', 'start_date', 'submitbutton'],
+          create_event: ['orgname', 'event_title', 'start_date', 'duration', 'capacity', 'description', 'category', 'submitbutton'],
+          update_event: ['orgname', 'event_title', 'start_date', 'duration', 'capacity', 'description', 'category', 'submitbutton'],
+          access_event: ['orgname','event_title', 'submitbutton' ], //what are params
+          room_view: ['orgname', 'start_date', 'end_date', 'roomviewbutton'],
+          create_organization_permissions: ['orgname','perm_list', 'perm_access', 'perm_delete', 'perm_add', 'submitbutton'],
+          create_room_permissions: ['orgname', 'roomname','roomperm_list', 'perm_reserve', 'perm_perreserve', 'roomperm_delete', 'perm_write', 'submitbutton'],
+          create_event_permission: ['orgname', 'event_title','eventperm_write', 'eventperm_read', 'submitbutton'],
+          // Assuming attach and detach are valid commands and event_ids, room_id are the corresponding fields
+          attach: ['roomname', 'event_title', 'orgname', 'observation_type', 'submitbutton'],
+          detach: ['roomname', 'event_title', 'orgname', 'observation_type', 'submitbutton']
+        };
+    
+        function handleCommandChange() {
+          hideAllFields();
+          const selectedCommand = commandSelect.value;
+
+          // Show fields based on the selected command
+          if (fieldMapping[selectedCommand]) {
+            fieldMapping[selectedCommand].forEach(field => {
+              if (fields[field]) { // Check if the field exists in the fields object
+                fields[field].style.display = 'block';
+              } else {
+                console.error('Field not found: ', field); // Log error for debugging
+              }
+            });
+          }
+          
+          // Show or hide the "Find Schedule" link
+          const findScheduleLink = document.getElementById('find-schedule-link');
+          if (selectedCommand === 'find_schedule') {
+            findScheduleLink.style.display = 'inline-block';
+          } else {
+            findScheduleLink.style.display = 'none';
+          }
+        }
+        
+    
+        // Initial call to set the correct field visibility
+        handleCommandChange();
+    
+        // Event listener for changes in the command selection
+        commandSelect.addEventListener('change', handleCommandChange);
+      });
+    </script>
+    
+  </head>
+  <body>
+    <h1>Command Center</h1>
+    <!-- Logout Button -->
+    <form action="{% url 'logout' %}" method="post">
+      {% csrf_token %}
+      <button type="submit" class="button">Logout</button>
+    </form>
+    <form action="/command-center/" method="post">
+      {% csrf_token %}
+      <div class = 'option'>
+        <label for="command">Choose a Command:</label>
+        <select name="command" id="command">
+          <option value="list_organizations">List All Organization</option>
+          <option value="create_organization">Create Organization</option>
+          <option value="update_organization">Update Organization</option>
+          <option value="list_rooms">List Rooms</option>
+          <option value="list_events">List Events</option>
+          <option value="create_room">Create Room</option>
+          <option value="access_room">Get Room</option>
+          <option value="delete_room">Delete Room</option>
+          <option value="update_room">Update Room</option>
+          <option value="list_room_events">List Room Reservations</option>
+          <option value="create_reservation">Reserve</option>
+          <option value="delete_reservation">Delete Reservation</option>
+          <option value="access_event">Get Event</option>
+          <option value="create_event">Create a New Event</option>
+          <option value="update_event">Update Event</option>
+          <option value="attach">Attach</option>
+          <option value="detach">Detach</option>
+          <option value="create_organization_permissions">
+            Get Permissions for Organization
+          </option>
+          <option value="create_room_permissions">
+            Get Permissions for Room
+          </option>
+          <option value="create_event_permission">
+            Get Permissions for Event
+          </option>
+          <option value="find_schedule">Find Schedule</option>
+          <option value="room_view">Room View</option>
+        </select>
+      </div>
+        
+      <a href="/find-schedule/" target="_blank" id="find-schedule-link" style="display: none;" class="button">Find Schedule</a>  
+        
+      <div>
+      <div id = "org_name" class="form-group optional-form-group">
+        <label for="org_name">Organization Name:</label>
+        <input type="text" id="org_name" name="org_name" />
+      </div>
+      <div id = "room_name" class="form-group optional-form-group">
+        <label for="room_name">Room Name:</label>
+        <input type="text" id="room_name" name="room_name" />
+      </div>
+      <div  id = "x" class="form-group optional-form-group">
+        <label for="x">Location x:</label>
+        <input type="number" id="x" name="x" />
+      </div>
+      <div id = "y" class="form-group optional-form-group">
+        <label for="y" >Location y:</label>
+        <input type="number" id="y" name="y" />
+      </div>
+      <div id = "capacity" class="form-group optional-form-group">
+        <label for="capacity">Capacity:</label>
+        <input type="number" id="capacity" name="capacity" />
+      </div>
+      <div id = "working_hours" class="form-group optional-form-group">
+        <label for="working_hours">Working Hours:</label>
+        <input type="text" id="working_hours" name="working_hours" />
+      </div>
+      <div id = "owner" class="form-group optional-form-group">
+        <label for="owner">Owner:</label>
+        <input type="text" id="owner" name="owner" />
+      </div>
+      <div id = "description" class="form-group optional-form-group">
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description" />
+      </div>
+      <div id = "field" class="form-group optional-form-group">
+        <label for="field">Update Field:</label>
+        <input type="text" id="field" name="field" />
+      </div>
+      <div id = "value" class="form-group optional-form-group">
+        <label for="value">Update Value:</label>
+        <input type="text" id="value" name="value" />
+      </div>
+      <div id="start_date" class="form-group optional-form-group">
+        <label for="start_date_input">Start Date:</label>
+        <input type="date" id="start_date_input" name="start_date" style="display: inline-block; width: auto;">
+        <input type="time" id="start_time_input" name="start_hour" style="display: inline-block; width: auto;">
+    </div>
+    
+      <div id = "end_date" class="form-group optional-form-group">
+        <label for="end_date">End Date:</label>
+        <input type="date" id="end_date_input" name="end_date" style="display: inline-block; width: auto;">
+        <input type="time" id="end_time_input" name="end_hour" style="display: inline-block; width: auto;">
+      </div>
+      <div id = "event_title" class="form-group optional-form-group">
+        <label for="event_title">Event Title: </label>
+        <input type="text" id="event_title" name="event_title" />
+      </div>
+  
+      <div id = "start_time" class="form-group optional-form-group">
+        <label for="start_time">Start Time: </label>
+        <input type="text" id="start_time" name="start_time" />
+      </div>
+
+      <div id = "end_time" class="form-group optional-form-group">
+        <label for="end_time">End Time: </label>
+        <input type="time" id="end_time" name="end_time" />
+      </div>
+
+      <div id = "duration" class="form-group optional-form-group">
+        <label for="duration">Duration: </label>
+        <input type="number" id="duration" name="duration" />
+      </div>
+  
+      <div id = "weekly" class="form-group optional-form-group">
+        <label for="weekly">Weekly: </label>
+        <input type="checkbox" id="weekly" name="weekly" />
+      </div>
+  
+      <div id = "category" class="form-group optional-form-group">
+        <label for="category">Category: </label>
+        <input type="text" id="category" name="category" />
+      </div>
+
+      <div id = "observation_type" class="form-group optional-form-group">
+        <label for="observation_type">Observation Type: </label>
+        <input type="text" id="observation_type" name="observation_type" />
+      </div>
+  
+      <div id = "event_ids" class="form-group optional-form-group">
+        <label for="event_ids">Event IDs: </label>
+        <input type="number" id="event_ids" name="event_ids" />
+      </div>
+  
+      <div id = "room_id" class="form-group optional-form-group">
+        <label for="room_id">Room ID: </label>
+        <input type="number" id="room_id" name="room_id" />
+      </div>
+      <fieldset>
+        <legend>Organization Permissions:</legend>
+        <div>
+          <input
+            type="checkbox"
+            id="perm_list"
+            name="permissions"
+            value="list"
+          />
+          <label for="perm_list">List Permission</label>
+        </div>
+        <div>
+          <input type="checkbox" id="perm_add" name="permissions" value="add" />
+          <label for="perm_add">Add Permission</label>
+        </div>
+        <div>
+          <input
+            type="checkbox"
+            id="perm_access"
+            name="permissions"
+            value="access"
+          />
+          <label for="perm_access">Access Permission</label>
+        </div>
+        <div>
+          <input
+            type="checkbox"
+            id="perm_delete"
+            name="permissions"
+            value="delete"
+          />
+          <label for="perm_delete">Delete Permission</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Event Permissions:</legend>
+        <div>
+          <input
+            type="checkbox"
+            id="event_perm_read"
+            name="permissions"
+            value="read"
+          />
+          <label for="event_perm_read">Read Permission</label>
+        </div>
+        <div>
+          <input type="checkbox" id="event_perm_write" name="permissions" value="write" />
+          <label for="event_perm_write">Write Permission</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Room Permissions:</legend>
+        <div>
+          <input
+            type="checkbox"
+            id="list_perm"
+            name="room_permissions"
+            value="list_permission"
+          />
+          <label for="list_perm">List Permission</label>
+        </div>
+        <div>
+          <input
+            type="checkbox"
+            id="reserve_perm"
+            name="room_permissions"
+            value="reserve_permission"
+          />
+          <label for="reserve_perm">Reserve Permission</label>
+        </div>
+        <div>
+          <input
+            type="checkbox"
+            id="perreserve_perm"
+            name="room_permissions"
+            value="perreserve_permission"
+          />
+          <label for="perreserve_perm">Permanent Reserve Permission</label>
+        </div>
+        <div>
+          <input
+            type="checkbox"
+            id="delete_perm"
+            name="room_permissions"
+            value="delete_permission"
+          />
+          <label for="delete_perm">Delete Permission</label>
+        </div>
+        <div>
+          <input
+            type="checkbox"
+            id="write_perm"
+            name="room_permissions"
+            value="write_permission"
+          />
+          <label for="write_perm">Write Permission</label>
+        </div>
+      </fieldset>
+    </div>
+      <button id = "submitbutton" class="button" type="submit">Execute Command</button>
+    </form>
+    <a href="{% url 'room-view-center' %}" id = "room-view-button" class="room-view-button">Room View</a>
+
+  </body>
+</html>

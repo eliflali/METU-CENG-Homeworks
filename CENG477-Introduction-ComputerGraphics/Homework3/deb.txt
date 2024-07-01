@@ -1,0 +1,3111 @@
+line 819
+line 833
+line 845
+VS error log: 
+FS error log: 
+VS error log: 
+FS error log: 
+VS error log: 
+FS error log: 
+bunny shader initialized
+ground shader initialized
+vao = 1
+bunny bufferlar
+1
+2
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 2
+ bufferlara bakalım
+3
+4
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 3
+bunny bufferlar
+5
+6
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 4
+ bufferlara bakalım
+7
+8
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 5
+bunny bufferlar
+9
+10
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 6
+ bufferlara bakalım
+11
+12
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 7
+bunny bufferlar
+13
+14
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 8
+ bufferlara bakalım
+15
+16
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 9
+bunny bufferlar
+17
+18
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 10
+ bufferlara bakalım
+19
+20
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 11
+bunny bufferlar
+21
+22
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 12
+ bufferlara bakalım
+23
+24
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 13
+bunny bufferlar
+25
+26
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 14
+ bufferlara bakalım
+27
+28
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 15
+bunny bufferlar
+29
+30
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 16
+ bufferlara bakalım
+31
+32
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 17
+bunny bufferlar
+33
+34
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 18
+ bufferlara bakalım
+35
+36
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 19
+bunny bufferlar
+37
+38
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 20
+ bufferlara bakalım
+39
+40
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 21
+bunny bufferlar
+41
+42
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 22
+ bufferlara bakalım
+43
+44
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 23
+bunny bufferlar
+45
+46
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 24
+ bufferlara bakalım
+47
+48
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 25
+bunny bufferlar
+49
+50
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 26
+ bufferlara bakalım
+51
+52
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 27
+bunny bufferlar
+53
+54
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 28
+ bufferlara bakalım
+55
+56
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 29
+bunny bufferlar
+57
+58
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 30
+ bufferlara bakalım
+59
+60
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 31
+bunny bufferlar
+61
+62
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 32
+ bufferlara bakalım
+63
+64
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 33
+bunny bufferlar
+65
+66
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 34
+ bufferlara bakalım
+67
+68
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 35
+bunny bufferlar
+69
+70
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 36
+ bufferlara bakalım
+71
+72
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 37
+bunny bufferlar
+73
+74
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 38
+ bufferlara bakalım
+75
+76
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 39
+bunny bufferlar
+77
+78
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 40
+ bufferlara bakalım
+79
+80
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 41
+bunny bufferlar
+81
+82
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 42
+ bufferlara bakalım
+83
+84
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 43
+bunny bufferlar
+85
+86
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 44
+ bufferlara bakalım
+87
+88
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 45
+bunny bufferlar
+89
+90
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 46
+ bufferlara bakalım
+91
+92
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 47
+bunny bufferlar
+93
+94
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 48
+ bufferlara bakalım
+95
+96
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 49
+bunny bufferlar
+97
+98
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 50
+ bufferlara bakalım
+99
+100
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 51
+bunny bufferlar
+101
+102
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 52
+ bufferlara bakalım
+103
+104
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 53
+bunny bufferlar
+105
+106
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 54
+ bufferlara bakalım
+107
+108
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 55
+bunny bufferlar
+109
+110
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 56
+ bufferlara bakalım
+111
+112
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 57
+bunny bufferlar
+113
+114
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 58
+ bufferlara bakalım
+115
+116
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 59
+bunny bufferlar
+117
+118
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 60
+ bufferlara bakalım
+119
+120
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 61
+bunny bufferlar
+121
+122
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 62
+ bufferlara bakalım
+123
+124
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 63
+bunny bufferlar
+125
+126
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 64
+ bufferlara bakalım
+127
+128
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 65
+bunny bufferlar
+129
+130
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 66
+ bufferlara bakalım
+131
+132
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 67
+bunny bufferlar
+133
+134
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 68
+ bufferlara bakalım
+135
+136
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 69
+bunny bufferlar
+137
+138
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 70
+ bufferlara bakalım
+139
+140
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 71
+bunny bufferlar
+141
+142
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 72
+ bufferlara bakalım
+143
+144
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 73
+bunny bufferlar
+145
+146
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 74
+ bufferlara bakalım
+147
+148
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 75
+bunny bufferlar
+149
+150
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 76
+ bufferlara bakalım
+151
+152
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 77
+bunny bufferlar
+153
+154
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 78
+ bufferlara bakalım
+155
+156
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 79
+bunny bufferlar
+157
+158
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 80
+ bufferlara bakalım
+159
+160
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 81
+bunny bufferlar
+161
+162
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 82
+ bufferlara bakalım
+163
+164
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 83
+bunny bufferlar
+165
+166
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 84
+ bufferlara bakalım
+167
+168
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 85
+bunny bufferlar
+169
+170
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 86
+ bufferlara bakalım
+171
+172
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 87
+bunny bufferlar
+173
+174
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 88
+ bufferlara bakalım
+175
+176
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 89
+bunny bufferlar
+177
+178
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 90
+ bufferlara bakalım
+179
+180
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 91
+bunny bufferlar
+181
+182
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 92
+ bufferlara bakalım
+183
+184
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 93
+bunny bufferlar
+185
+186
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 94
+ bufferlara bakalım
+187
+188
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 95
+bunny bufferlar
+189
+190
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 96
+ bufferlara bakalım
+191
+192
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 97
+bunny bufferlar
+193
+194
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 98
+ bufferlara bakalım
+195
+196
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 99
+bunny bufferlar
+197
+198
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 100
+ bufferlara bakalım
+199
+200
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 101
+bunny bufferlar
+201
+202
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 102
+ bufferlara bakalım
+203
+204
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 103
+bunny bufferlar
+205
+206
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 104
+ bufferlara bakalım
+207
+208
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 105
+bunny bufferlar
+209
+210
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 106
+ bufferlara bakalım
+211
+212
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 107
+bunny bufferlar
+213
+214
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 108
+ bufferlara bakalım
+215
+216
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 109
+bunny bufferlar
+217
+218
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 110
+ bufferlara bakalım
+219
+220
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 111
+bunny bufferlar
+221
+222
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 112
+ bufferlara bakalım
+223
+224
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 113
+bunny bufferlar
+225
+226
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 114
+ bufferlara bakalım
+227
+228
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 115
+bunny bufferlar
+229
+230
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 116
+ bufferlara bakalım
+231
+232
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 117
+bunny bufferlar
+233
+234
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 118
+ bufferlara bakalım
+235
+236
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 119
+bunny bufferlar
+237
+238
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 120
+ bufferlara bakalım
+239
+240
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 121
+bunny bufferlar
+241
+242
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 122
+ bufferlara bakalım
+243
+244
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 123
+bunny bufferlar
+245
+246
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 124
+ bufferlara bakalım
+247
+248
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 125
+bunny bufferlar
+249
+250
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 126
+ bufferlara bakalım
+251
+252
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 127
+bunny bufferlar
+253
+254
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 128
+ bufferlara bakalım
+255
+256
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 129
+bunny bufferlar
+257
+258
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 130
+ bufferlara bakalım
+259
+260
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 131
+bunny bufferlar
+261
+262
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 132
+ bufferlara bakalım
+263
+264
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 133
+bunny bufferlar
+265
+266
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 134
+ bufferlara bakalım
+267
+268
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 135
+bunny bufferlar
+269
+270
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 136
+ bufferlara bakalım
+271
+272
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 137
+bunny bufferlar
+273
+274
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 138
+ bufferlara bakalım
+275
+276
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 139
+bunny bufferlar
+277
+278
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 140
+ bufferlara bakalım
+279
+280
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 141
+bunny bufferlar
+281
+282
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 142
+ bufferlara bakalım
+283
+284
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 143
+bunny bufferlar
+285
+286
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 144
+ bufferlara bakalım
+287
+288
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 145
+bunny bufferlar
+289
+290
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 146
+ bufferlara bakalım
+291
+292
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 147
+bunny bufferlar
+293
+294
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 148
+ bufferlara bakalım
+295
+296
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 149
+bunny bufferlar
+297
+298
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 150
+ bufferlara bakalım
+299
+300
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 151
+bunny bufferlar
+301
+302
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 152
+ bufferlara bakalım
+303
+304
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 153
+bunny bufferlar
+305
+306
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 154
+ bufferlara bakalım
+307
+308
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 155
+bunny bufferlar
+309
+310
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 156
+ bufferlara bakalım
+311
+312
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 157
+bunny bufferlar
+313
+314
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 158
+ bufferlara bakalım
+315
+316
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 159
+bunny bufferlar
+317
+318
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 160
+ bufferlara bakalım
+319
+320
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 161
+bunny bufferlar
+321
+322
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 162
+ bufferlara bakalım
+323
+324
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 163
+bunny bufferlar
+325
+326
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 164
+ bufferlara bakalım
+327
+328
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 165
+bunny bufferlar
+329
+330
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 166
+ bufferlara bakalım
+331
+332
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 167
+bunny bufferlar
+333
+334
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 168
+ bufferlara bakalım
+335
+336
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 169
+bunny bufferlar
+337
+338
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 170
+ bufferlara bakalım
+339
+340
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 171
+bunny bufferlar
+341
+342
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 172
+ bufferlara bakalım
+343
+344
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 173
+bunny bufferlar
+345
+346
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 174
+ bufferlara bakalım
+347
+348
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 175
+bunny bufferlar
+349
+350
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 176
+ bufferlara bakalım
+351
+352
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 177
+bunny bufferlar
+353
+354
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 178
+ bufferlara bakalım
+355
+356
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 179
+bunny bufferlar
+357
+358
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 180
+ bufferlara bakalım
+359
+360
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 181
+bunny bufferlar
+361
+362
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 182
+ bufferlara bakalım
+363
+364
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 183
+bunny bufferlar
+365
+366
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 184
+ bufferlara bakalım
+367
+368
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 185
+bunny bufferlar
+369
+370
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 186
+ bufferlara bakalım
+371
+372
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 187
+bunny bufferlar
+373
+374
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 188
+ bufferlara bakalım
+375
+376
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 189
+bunny bufferlar
+377
+378
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 190
+ bufferlara bakalım
+379
+380
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 191
+bunny bufferlar
+381
+382
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 192
+ bufferlara bakalım
+383
+384
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 193
+bunny bufferlar
+385
+386
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 194
+ bufferlara bakalım
+387
+388
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 195
+bunny bufferlar
+389
+390
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 196
+ bufferlara bakalım
+391
+392
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 197
+bunny bufferlar
+393
+394
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 198
+ bufferlara bakalım
+395
+396
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed
+vao = 199
+bunny bufferlar
+397
+398
+0
+0
+417804
+417804
+69630
+0
+-1.27692
+-0.26665
+0.84513
+-0.778044
+-0.0186506
+0.627933
+34817
+bunny displayed
+vao ground = 200
+ bufferlara bakalım
+399
+400
+0
+0
+48
+48
+2
+4
+4
+4
+ground displayed

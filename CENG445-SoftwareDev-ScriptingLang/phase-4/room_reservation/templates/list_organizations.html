@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Organizations</title>
+    <style>
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+      .back-link {
+        display: block;
+        margin-top: 20px;
+        text-align: center;
+      }
+    </style>
+  </head>
+<body>
+    <h1>Organizations</h1>
+    <table id="organizations-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Owner</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Initial data loaded by Django template -->
+            {% for organization in organizations %}
+            <tr>
+                <td>{{ organization.id }}</td>
+                <td>{{ organization.name }}</td>
+                <td>{{ organization.description }}</td>
+                <td>{{ organization.owner }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="/command-center/" class="back-link">Back to Command Center</a>
+
+    <!-- JavaScript for periodic data fetching -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const url = "/organizations-json";  // Replace with the URL to your Django view
+
+            function updateTable(data) {
+                const tableBody = document.getElementById('organizations-table').getElementsByTagName('tbody')[0];
+                tableBody.innerHTML = ''; // Clear existing table data
+
+                // Assuming 'data' is an array of organizations
+                if (Array.isArray(data.response)) {
+                    data.response.forEach(org => {
+                        const row = `<tr>
+                                        <td>${org.id}</td>
+                                        <td>${org.name}</td>
+                                        <td>${org.description}</td>
+                                        <td>${org.owner}</td>
+                                     </tr>`;
+                        tableBody.innerHTML += row;
+                    });
+                } else {
+                    console.error('Invalid data format: ', data);
+                }
+            }
+
+            function fetchData() {
+                fetch(url)
+                    .then(response => response.json())
+                    .then(data => {
+                        updateTable(data);  // Update table with fetched data
+                    })
+                    .catch(error => console.error("Error fetching data:", error));
+            }
+
+            setInterval(fetchData, 5000); // Fetch data every 5 seconds
+        });
+    </script>
+</body>
+</html>

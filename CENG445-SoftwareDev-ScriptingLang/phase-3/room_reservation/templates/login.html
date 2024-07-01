@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login</title>
+    <style>
+      /* Place your CSS code here */
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f0f2f5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+
+      form {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        width: 300px;
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        color: #666;
+      }
+
+      input[type="text"],
+      input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+
+      input[type="text"]:focus,
+      input[type="password"]:focus {
+        border-color: #007bff;
+        outline: none;
+      }
+
+      button {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      #loginError {
+        color: red;
+        text-align: center;
+        margin-top: 10px;
+      }
+
+      .register-btn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        padding: 10px 15px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .register-btn:hover {
+        background-color: #218838;
+      }
+    </style>
+    <script>
+      function handleLogin(event) {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        fetch("/execute-login/", {
+          method: "POST",
+          body: formData,
+        })
+          .then((response) => {
+            if (
+              response.headers.get("content-type").includes("application/json")
+            ) {
+              return response.json();
+            } else {
+              return response.text().then((text) => {
+                throw new Error(text);
+              });
+            }
+          })
+          .then((data) => {
+            if (data.redirect) {
+              window.location.href = data.redirect;
+            } else {
+              document.getElementById("loginError").textContent =
+                data.error || "Login failed!";
+            }
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            document.getElementById("loginError").textContent =
+              "Login error: " + error.message;
+          });
+      }
+    </script>
+  </head>
+  <body>
+    <div>
+      <a href="/register/" class="register-btn">Register</a>
+    </div>
+
+    <h1>Login</h1>
+    <form id="loginForm" onsubmit="handleLogin(event)">
+      <div>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required />
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required />
+      </div>
+      <button type="submit">Login</button>
+    </form>
+    <div id="loginError" style="color: red"></div>
+  </body>
+</html>
